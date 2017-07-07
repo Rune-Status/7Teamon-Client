@@ -1,0 +1,9 @@
+<-------[Jesse's Notes]------------>
+FORMAT:
+✔ = Completed
+☐ = Not Completed
+
+Client:
+ ☐ TODO: make 10x hitting toggleable
+ ☐ TODO: multi-threaded cache downloader
+ ✔ change the fog color to blue
