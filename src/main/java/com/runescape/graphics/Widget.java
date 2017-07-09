@@ -304,6 +304,9 @@ public final class Widget {
 
 		pvpTab(textDrawingAreas);
 		spawnTab(textDrawingAreas);
+		inPvp(textDrawingAreas);
+		notInPvp(textDrawingAreas);
+		questTab(textDrawingAreas);
 		presets(textDrawingAreas);
 
 		basicSettings(textDrawingAreas);
@@ -312,6 +315,35 @@ public final class Widget {
 		levelUpInterfaces();
 		
 		spriteCache = null;
+	}
+
+	public static void questTab(GameFont[] tda) {
+		Widget Interface = addTabInterface(33000);
+		addText(33001, "@yel@LotusPk Journal", tda, 2, 0xeb981f, false, true);
+		addSprite(33002, 487);
+		addSprite(33003, 488);
+		addSprite(33004, 490);
+		addSprite(33006, 489);
+		Interface.totalChildren(5);
+		Interface.child(4, 33001, 10, 5);
+		Interface.child(3, 33002, 145, 3);
+		Interface.child(2, 33003, 165, 3);
+		Interface.child(1, 33010, 10, 30);
+		Interface.child(0, 33006, 0, 24);
+		Interface = addTabInterface(33010);
+
+		addText(33010, "Players online:", tda, 0, 0xeb981f, false, true);
+		//Scrollbar
+		Interface.totalChildren(201);
+		int position = 0;
+		for (int i = 0; i <= 200; i++) {
+			addHoverText((33011 + i), "", "", tda, 0, 0xff0000, false, true, 100);
+			position += 14;
+			Interface.child(i, (33011 + i), 0, position);
+		}
+		Interface.height = 214;
+		Interface.width = 165;
+		Interface.scrollMax = position;
 	}
 	
 	//Keys by Oak 
@@ -842,25 +874,49 @@ public final class Widget {
 		tab.child(child++, 32026, 5, 146);
 	}
 
+	public static void inPvp(GameFont[] tda) {
+		Widget RSinterface = addInterface(21200);
+		addSpriteLoader(21201, 493);
+		addText(21202, "", tda, 1, 0xff9040, true, true);
+		int last = 2;
+		RSinterface.children = new int[last];
+		RSinterface.childX = new int[last];
+		RSinterface.childY = new int[last];
+		setBounds(21201, 400, 285, 0,RSinterface);
+		setBounds(21202, 444, 318, 1,RSinterface);
+	}
+
+	public static void notInPvp(GameFont[] tda) {
+		Widget RSinterface = addInterface(21300);
+		addSpriteLoader(21301, 492);
+		addText(21302, "", tda, 1, 0xff9040, true, true);
+		int last = 2;
+		RSinterface.children = new int[last];
+		RSinterface.childX = new int[last];
+		RSinterface.childY = new int[last];
+		setBounds(21301, 400, 285, 0,RSinterface);
+		setBounds(21302, 444, 318, 1,RSinterface);
+	}
+
 	public static void spawnTab(GameFont[] tda) {
 		Widget tab = addTabInterface(31000);
 
 
-		addText(31002, "Spawn Tab", tda, 2, 0xFFFFFF, true, true);
+		addText(31002, "Spawn Tab", tda, 2, 0xeb981f, true, true);
 
-		addText(31003, "Item", tda, 1, 0xff8000, false, true);
+		addText(31003, "Item", tda, 1, 0xeb981f, false, true);
 
 
 		addHoverButton_sprite_loader(31004, 330, 172, 20, "Search", -1, 31005, 1);
 		addHoveredButton_sprite_loader(31005, 331, 172, 20, 31006);
 
 		//Inventory spawn
-		addText(31010, "Inventory:", tda, 0, 0xFFFFFF, false, true);
+		addText(31010, "Inventory:", tda, 0, 0xeb981f, false, true);
 		addHoverButton_sprite_loader(31007, 332, 14, 15, "Select", -1, 31008, 1);
 		addHoveredButton_sprite_loader(31008, 333, 14, 15, 31009);
 
 		//Bank spawn
-		addText(31014, "Bank:", tda, 0, 0xFFFFFF, false, true);
+		addText(31014, "Bank:", tda, 0, 0xeb981f, false, true);
 		addHoverButton_sprite_loader(31011, 332, 14, 15, "Select", -1, 31012, 1);
 		addHoveredButton_sprite_loader(31012, 333, 14, 15, 31013);
 

@@ -1,17 +1,17 @@
 package com.runescape.cache.def;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-
 import com.runescape.Client;
-import com.runescape.cache.utils.FileArchive;
 import com.runescape.animations.Frame;
 import com.runescape.cache.config.VariableBits;
+import com.runescape.cache.utils.FileArchive;
 import com.runescape.collection.ReferenceCache;
 import com.runescape.entity.model.Model;
 import com.runescape.io.Buffer;
 import com.runescape.net.requester.ResourceProvider;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public final class ObjectDefinition {
 
@@ -134,6 +134,10 @@ public final class ObjectDefinition {
 			objectDef.name = "Bank portal";
 		} else if(id == 4151) {
 			objectDef.name = "Ditch portal";
+		}
+
+		if (id == 15478) {
+			objectDef.name = "@red@Edgeville portal";
 		}
 		
 		if(id == 26756) {
