@@ -28,7 +28,7 @@ public final class Constants {
 	 */
 	public static int server_port = 43598;
 	
-	public static final int CLIENT_VERSION = 1;
+	public static final int CLIENT_VERSION = 12241;
 
 	public static final String CACHE_DIRECTORY = System.getProperty("user.home") + File.separator + String.format("%s" + "/", getClientName());
 	
